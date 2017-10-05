@@ -39,7 +39,6 @@ public class RegistrationActivity extends AppCompatActivity {
                 passS = password.getText().toString().trim();
                 confirmPassS = confirmPassword.getText().toString().trim();
                 if(confirmPassS.equals(passS))
-
                 {
                     if (email != null && passS != null && confirmPassS != null) {
                         firebaseAuth.createUserWithEmailAndPassword(emailS, passS).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
