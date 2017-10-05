@@ -3,4 +3,26 @@
     <color name="colorPrimary">#3F51B5</color>
     <color name="colorPrimaryDark">#303F9F</color>
     <color name="colorAccent">#FF4081</color>
+
+    <color name="colorPrimary1">#3F51B5</color>
+    <color name="colorPrimaryDark1">#303F9F</color>
+    <color name="colorAccent1">#FF4081</color>
+    <color name="indigo">#4b0082</color>
+    <color name="pink">#F06292</color>
+    <color name="white">#FFFFFF</color>
+
+    <color name="gray">#e6e6e6</color>
+    <color name="blue">#42A5F5</color>
+    <color name="orange">#ffff8800</color>
+    <color name="light_orange">#ffe27d18</color>
+    <color name="transparent">#0000</color>
+
+
+    <color name="button_back">#FF6E40</color>
+    <!-- Screens background color-->
+    <color name="bg_screen1">#f64c73</color>
+    <color name="bg_screen2">#20d2bb</color>
+    <color name="bg_screen3">#3395ff</color>
+    <color name="bg_screen4">#c873f4</color>
+
 </resources>

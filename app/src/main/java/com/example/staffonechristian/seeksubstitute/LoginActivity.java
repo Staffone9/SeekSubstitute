@@ -55,23 +55,31 @@ public class LoginActivity extends AppCompatActivity {
         login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                firebaseAuth.signInWithEmailAndPassword(emailS,passS).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
-                    @Override
-                    public void onComplete(@NonNull Task<AuthResult> task) {
-                        if(task.isSuccessful())
-                        {
-                            Toast.makeText(getApplicationContext(),"Login Successful",Toast.LENGTH_SHORT).show();
-                            Intent intent = new Intent(getApplicationContext(),MainActivity.class);
-                            startActivity(intent);
 
-                        }else {
+                emailS = email.getText().toString().trim();
+                passS = password.getText().toString().trim();
 
-                            Toast.makeText(getApplicationContext(),"Login failed",Toast.LENGTH_SHORT).show();
+                if(!emailS.equals("") && !passS.equals("")) {
+                    firebaseAuth.signInWithEmailAndPassword(emailS, passS).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+                        @Override
+                        public void onComplete(@NonNull Task<AuthResult> task) {
+                            if (task.isSuccessful()) {
+                                Toast.makeText(getApplicationContext(), "Login Successful", Toast.LENGTH_SHORT).show();
+                                Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+                                startActivity(intent);
+
+                            } else {
+
+                                Toast.makeText(getApplicationContext(), "Login failed", Toast.LENGTH_SHORT).show();
+                            }
+
+
                         }
+                    });
+                }else{
+                    Toast.makeText(getApplicationContext(), "Please enter some value", Toast.LENGTH_SHORT).show();
 
-
-                    }
-                });
+                }
 
             }
         });

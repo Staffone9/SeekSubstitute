@@ -5,8 +5,18 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="com.example.staffonechristian.seeksubstitute.LoginActivity"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:padding="8dp"
+    android:background="@color/white"
+    >
 
+    <ImageView
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:src="@drawable/login"
+        android:layout_margin="30dp"
+        android:layout_gravity="center"
+        />
     <LinearLayout
         android:layout_height="wrap_content"
         android:layout_width="match_parent"
@@ -56,13 +66,28 @@
     <Button
         android:id="@+id/loginEmailButton"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="35dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="5dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="10dp"
+        android:background="@drawable/button_round"
+        android:gravity="center"
+        android:textColor="@color/white"
+        android:layout_gravity="center"
         android:text="Login" />
 
     <Button
         android:id="@+id/registerEmailButton"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="35dp"
+        android:gravity="center"
+        android:layout_marginTop="10dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="10dp"
+        android:layout_gravity="center"
+        android:textColor="@color/white"
+        android:background="@drawable/second_button"
         android:text="Register" />
 
 </LinearLayout>
