@@ -61,6 +61,7 @@ public class RegistrationActivity extends AppCompatActivity {
                         });
 
 
+
                     }else{
                         Toast.makeText(getApplicationContext(), "All fields are mandatory", Toast.LENGTH_SHORT).show();
 
