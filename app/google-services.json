@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "832085666752",
+    "firebase_url": "https://seeksubstitute.firebaseio.com",
+    "project_id": "seeksubstitute",
+    "storage_bucket": "seeksubstitute.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:832085666752:android:d45561bfa8b952ea",
+        "android_client_info": {
+          "package_name": "com.example.staffonechristian.seeksubstitute"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "832085666752-0doj8gmse3qk7u7109nqp1rq8nbu0sgk.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBKe9CcgDhPA62jC8V-YF6NnOdKCc5aIqU"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
