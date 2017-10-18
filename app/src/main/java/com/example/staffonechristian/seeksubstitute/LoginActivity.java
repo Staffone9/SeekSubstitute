@@ -36,8 +36,8 @@ public class LoginActivity extends AppCompatActivity {
         password = (EditText) findViewById(R.id.passL);
         Bundle bundle = getIntent().getExtras();
         firebaseAuth = FirebaseAuth.getInstance();
-        Intent intent= new Intent(getApplicationContext(),MainActivity.class);
-        startActivity(intent);
+//        Intent intent= new Intent(getApplicationContext(),MainActivity.class);
+//        startActivity(intent);
         if(bundle!=null)
         {
 
