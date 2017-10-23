@@ -17,16 +17,20 @@ import com.google.firebase.auth.FirebaseAuth;
 public class RegistrationActivity extends AppCompatActivity {
 
     Button submit;
-    EditText email,password,confirmPassword;
+    EditText name,email,password,confirmPassword,subject,country,qualification;
     FirebaseAuth firebaseAuth;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_registration);
         submit = (Button) findViewById(R.id.submitEmail);
+        name=(EditText)findViewById(R.id.nameR);
         email = (EditText) findViewById(R.id.emailR);
         password = (EditText) findViewById(R.id.passwordR);
         confirmPassword = (EditText) findViewById(R.id.confirmPasswordR);
+        subject=(EditText)findViewById(R.id.subjectR);
+        country=(EditText)findViewById(R.id.countryR);
+        qualification=(EditText)findViewById(R.id.qualificationR);
         firebaseAuth = FirebaseAuth.getInstance();
 
 
@@ -34,13 +38,17 @@ public class RegistrationActivity extends AppCompatActivity {
         submit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                final String emailS,passS,confirmPassS;
+                final String nameS,emailS,passS,confirmPassS,subjectS,countryS,qualificationS;
+                nameS=name.getText().toString().trim();
                 emailS = email.getText().toString().trim();
                 passS = password.getText().toString().trim();
                 confirmPassS = confirmPassword.getText().toString().trim();
+                subjectS=subject.getText().toString().trim();
+                countryS=country.getText().toString().trim();
+                qualificationS=qualification.getText().toString().trim();
                 if(confirmPassS.equals(passS))
                 {
-                    if (email != null && passS != null && confirmPassS != null) {
+                    if (email != null && passS != null && confirmPassS != null ) {
                         firebaseAuth.createUserWithEmailAndPassword(emailS, passS).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                             @Override
                             public void onComplete(@NonNull Task<AuthResult> task) {
@@ -51,6 +59,10 @@ public class RegistrationActivity extends AppCompatActivity {
                                     Bundle bundle = new Bundle();
                                     bundle.putString("email",emailS);
                                     bundle.putString("pass",passS);
+                                  //  bundle.putString("name",nameS);
+                                   // bundle.putString("country",countryS);
+                                    //bundle.putString("sub",subjectS);
+                                    //bundle.putString("quali",qualificationS);
                                     intent.putExtras(bundle);
                                     startActivity(intent);
                                 } else {

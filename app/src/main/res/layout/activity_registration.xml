@@ -1,104 +1,208 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context="com.example.staffonechristian.seeksubstitute.RegistrationActivity"
-    android:orientation="vertical"
-    android:background="@color/white"
-    android:padding="8dp"
-    >
+    android:layout_height="wrap_content"
+    android:fillViewport="true"
+    android:scrollbarStyle="insideOverlay">
 
-    <ImageView
-        android:layout_width="100dp"
-        android:layout_height="100dp"
-        android:src="@drawable/register"
-        android:layout_margin="30dp"
-        android:layout_gravity="center"
-        />
-
-    <LinearLayout
-        android:layout_height="wrap_content"
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
-        android:orientation="horizontal"
-        android:weightSum="1"
-        >
-        <TextView
-            android:id="@+id/emailTextViewR"
-            android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:background="@color/white"
+        android:orientation="vertical"
+        android:padding="8dp"
+        tools:context="com.example.staffonechristian.seeksubstitute.RegistrationActivity">
+
+        <ImageView
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_gravity="center"
+            android:layout_margin="30dp"
+            android:src="@drawable/register" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_weight="0.3"
+            android:orientation="horizontal"
+            android:weightSum="1">
 
-            android:text="Email Address:" />
+            <TextView
+                android:id="@+id/NameTextViewR"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.3"
 
-        <EditText
-            android:id="@+id/emailR"
-            android:layout_width="0dp"
+                android:text="Name:" />
+
+            <EditText
+                android:id="@+id/nameR"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.7"
+                android:hint="Enter Your FullName" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_weight="0.7"
-            android:hint="Enter Email Address"
-            />
+            android:orientation="horizontal"
+            android:weightSum="1">
 
+            <TextView
+                android:id="@+id/emailTextViewR"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.3"
+
+                android:text="Email Address:" />
+
+            <EditText
+                android:id="@+id/emailR"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.7"
+                android:hint="Enter Email Address" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:weightSum="1">
+
+            <TextView
+                android:id="@+id/passwordTextViewR"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.3"
+                android:text="Password:" />
+
+            <EditText
+                android:id="@+id/passwordR"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.7"
+                android:hint="Enter Password"
+                android:inputType="textPassword" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:weightSum="1">
+
+            <TextView
+                android:id="@+id/confirmpasswordTextViewR"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.3"
+                android:text="Confirm Password:" />
+
+            <EditText
+                android:id="@+id/confirmPasswordR"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.7"
+                android:hint="Enter Password again"
+                android:inputType="textPassword"
+                android:maxLines="1" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:weightSum="1">
+
+            <TextView
+                android:id="@+id/subjectTextViewR"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.3"
+                android:text="Subject:" />
+
+            <EditText
+                android:id="@+id/subjectR"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.7"
+                android:hint="Enter your Subject"
+                android:maxLines="1"
+
+                />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:weightSum="1">
+
+            <TextView
+                android:id="@+id/countryTextViewR"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.3"
+                android:text="Country:" />
+
+            <EditText
+                android:id="@+id/countryR"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.7"
+                android:hint="Enter your Country:"
+                android:maxLines="1"
+
+                />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:weightSum="1">
+
+            <TextView
+                android:id="@+id/qualificationTextViewR"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.3"
+                android:text="Qualification:" />
+
+            <EditText
+                android:id="@+id/qualificationR"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.7"
+                android:hint="Enter your Qualification:"
+                android:maxLines="1"
+
+                />
+
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/submitEmail"
+            android:layout_width="match_parent"
+            android:layout_height="35dp"
+            android:layout_gravity="center"
+            android:layout_marginEnd="10dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/register_bc"
+            android:gravity="center"
+            android:text="Submit"
+            android:textColor="@color/white" />
     </LinearLayout>
-    <LinearLayout
-        android:layout_height="wrap_content"
-        android:layout_width="match_parent"
-        android:orientation="horizontal"
-        android:weightSum="1"
-        >
-        <TextView
-            android:id="@+id/passwordTextViewR"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="0.3"
-            android:text="Password:" />
-
-        <EditText
-            android:id="@+id/passwordR"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="0.7"
-            android:hint="Enter Password"
-            android:inputType="textPassword" />
-
-    </LinearLayout>
-    <LinearLayout
-        android:layout_height="wrap_content"
-        android:layout_width="match_parent"
-        android:orientation="horizontal"
-        android:weightSum="1"
-        >
-        <TextView
-            android:id="@+id/confirmpasswordTextViewR"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="0.3"
-            android:text="Confirm Password:" />
-
-        <EditText
-            android:id="@+id/confirmPasswordR"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="0.7"
-            android:hint="Enter Password again"
-            android:maxLines="1"
-            android:inputType="textPassword"
-           />
-
-    </LinearLayout>
 
 
-    <Button
-        android:id="@+id/submitEmail"
-        android:layout_width="match_parent"
-        android:layout_height="35dp"
-        android:gravity="center"
-        android:layout_marginTop="20dp"
-        android:layout_marginStart="10dp"
-        android:layout_marginEnd="10dp"
-        android:layout_gravity="center"
-        android:textColor="@color/white"
-        android:background="@drawable/register_bc"
-        android:text="Submit" />
-</LinearLayout>
+</ScrollView>
