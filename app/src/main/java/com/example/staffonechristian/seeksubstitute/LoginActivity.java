@@ -27,7 +27,7 @@ public class LoginActivity extends AppCompatActivity {
     String emailS;
     String passS;
     String temp;
-
+    String pas;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
