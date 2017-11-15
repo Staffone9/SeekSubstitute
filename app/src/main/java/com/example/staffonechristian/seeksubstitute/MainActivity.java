@@ -1,9 +1,12 @@
 package com.example.staffonechristian.seeksubstitute;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.support.design.widget.FloatingActionButton;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
+import android.view.View;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DatabaseReference;
@@ -11,14 +14,23 @@ import com.google.firebase.database.FirebaseDatabase;
 
 public class MainActivity extends AppCompatActivity {
 
-
+    FloatingActionButton floatingActionButton;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
       //  createLecture();
-        Fragment fragment;
 
+        floatingActionButton = (FloatingActionButton) findViewById(R.id.fab);
+        Fragment fragment;
+        floatingActionButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getApplicationContext(),CreateSchedule.class);
+                startActivity(intent);
+
+            }
+        });
         fragment = new FragmentSchedule();
         TransactionOfFragment(fragment);
 

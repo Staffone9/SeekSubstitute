@@ -28,6 +28,7 @@ public class LoginActivity extends AppCompatActivity {
     String passS;
     String temp;
     String pas;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -40,6 +41,8 @@ public class LoginActivity extends AppCompatActivity {
         firebaseAuth = FirebaseAuth.getInstance();
 //        Intent intent= new Intent(getApplicationContext(),MainActivity.class);
 //        startActivity(intent);
+
+
         if(bundle!=null)
         {
 

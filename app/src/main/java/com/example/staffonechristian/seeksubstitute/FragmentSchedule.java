@@ -16,6 +16,7 @@ import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
@@ -100,9 +101,6 @@ public class FragmentSchedule extends Fragment {
 
     private void PrepareSchedule() {
 
-
-
-
         final DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference();
         DatabaseReference readScheduleDetail = databaseReference.child("seeksubstitute").child("ScheduleDetail").child(FirebaseAuth.getInstance().getCurrentUser().getUid());
 
@@ -111,10 +109,8 @@ public class FragmentSchedule extends Fragment {
             public void onDataChange(DataSnapshot dataSnapshot) {
                 for (DataSnapshot individual:dataSnapshot.getChildren()) {
                     countrySchoolSubjectDatas.add(individual.getValue(CountrySchoolSubjectData.class));
-
                 }
                 finalRead();
-
             }
 
             @Override
@@ -131,8 +127,8 @@ public class FragmentSchedule extends Fragment {
         for (CountrySchoolSubjectData singObject:countrySchoolSubjectDatas
              ) {
             final DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference();
-            final DatabaseReference scheduleDb = databaseReference.child("seeksubstitute").child("schedule").child(singObject.getCountry())
-                    .child(singObject.getSchool()).child(singObject.getSubject());
+            final Query scheduleDb = databaseReference.child("seeksubstitute").child("schedule").child(singObject.getCountry())
+                    .child(singObject.getSchool()).child(singObject.getSubject()).orderByChild("sirID").equalTo(FirebaseAuth.getInstance().getCurrentUser().getUid());
             scheduleDb.addListenerForSingleValueEvent(new ValueEventListener() {
                 @Override
                 public void onDataChange(DataSnapshot dataSnapshot) {

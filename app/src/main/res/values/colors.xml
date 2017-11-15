@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#3F51B5</color>
-    <color name="colorPrimaryDark">#303F9F</color>
-    <color name="colorAccent">#FF4081</color>
+    <color name="colorPrimary">#42f4bf</color>
+    <color name="colorPrimaryDark">#00c08f</color>
+    <color name="colorAccent">#82fff2</color>
 
     <color name="colorPrimary1">#3F51B5</color>
     <color name="colorPrimaryDark1">#303F9F</color>
@@ -16,7 +16,7 @@
     <color name="orange">#ffff8800</color>
     <color name="light_orange">#ffe27d18</color>
     <color name="transparent">#0000</color>
-
+    <color name="appColour">#42f4bf</color>
 
     <color name="button_back">#FF6E40</color>
     <!-- Screens background color-->

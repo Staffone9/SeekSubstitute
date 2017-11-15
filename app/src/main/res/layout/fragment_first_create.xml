@@ -1,0 +1,107 @@
+<ScrollView android:layout_height="wrap_content"
+    android:layout_width="match_parent"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_marginBottom="50dp">
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.staffonechristian.seeksubstitute.FirstCreateFragment"
+    android:layout_margin="10dp"
+
+    >
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_marginLeft="36dp"
+        >
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Schedule Creation"
+        android:textSize="25sp"
+        android:layout_marginTop="20dp"
+        android:gravity="center"
+        />
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="60dp"
+
+        >
+
+        <ImageView
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_marginRight="20dp"
+            android:src="@drawable/country"
+            />
+    <AutoCompleteTextView
+        android:id="@+id/countryAutoCompleteTextView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+
+        android:textSize="23sp"
+        android:hint="Country Name "
+        android:textCursorDrawable="@drawable/cursor_create_schedule"
+        android:background="@null"
+        android:layout_gravity="center"
+        android:text="">
+    </AutoCompleteTextView>
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="60dp"
+
+        >
+        <ImageView
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_marginRight="20dp"
+            android:src="@drawable/school"
+            />
+        <AutoCompleteTextView
+            android:id="@+id/schoolAutoCompleteTextView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="23sp"
+            android:hint="School Name "
+            android:layout_gravity="center"
+            android:textCursorDrawable="@drawable/cursor_create_schedule"
+            android:background="@null"
+            android:text=""/>
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="60dp"
+
+        >
+        <ImageView
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_marginRight="20dp"
+            android:src="@drawable/subject"
+            android:scaleType="fitCenter"
+            />
+        <AutoCompleteTextView
+            android:id="@+id/subjectAutoCompleteTextView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="23sp"
+            android:layout_gravity="center"
+            android:hint="Subject Name "
+            android:textCursorDrawable="@drawable/cursor_create_schedule"
+            android:background="@null"
+            android:text=""/>
+    </LinearLayout>
+    </LinearLayout>
+</FrameLayout>
+</ScrollView>
