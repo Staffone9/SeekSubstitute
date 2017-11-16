@@ -15,8 +15,17 @@ public class ScheduleData {
     private String country;
     private String schoolName;
     private boolean going;
+    private Object timestamp;
     //by default going will be true
 
+
+    public Object getTimestamp() {
+        return timestamp;
+    }
+
+    public void setTimestamp(Object timestamp) {
+        this.timestamp = timestamp;
+    }
 
     public String getSchoolName() {
         return schoolName;

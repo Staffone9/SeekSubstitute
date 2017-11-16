@@ -4,6 +4,7 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.OrientationHelper;
@@ -43,7 +44,7 @@ public class FragmentSchedule extends Fragment {
     private String mParam1;
     private String mParam2;
 
-
+    SwipeRefreshLayout swipeRefreshLayout;
     private OnFragmentInteractionListener mListener;
 
     public FragmentSchedule() {
@@ -81,7 +82,7 @@ public class FragmentSchedule extends Fragment {
         View view =  inflater.inflate(R.layout.fragment_fragment_schedule, container, false);
         // Inflate the layout for this fragment
 
-
+        swipeRefreshLayout = view.findViewById(R.id.swipeRefresh);
         scheduleDatas = new ArrayList<>();
         countrySchoolSubjectDatas = new ArrayList<>();
         scheduleRecyclerView = view.findViewById(R.id.scheduleRecycler);
@@ -96,45 +97,36 @@ public class FragmentSchedule extends Fragment {
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
-        PrepareSchedule();
-    }
-
-    private void PrepareSchedule() {
-
-        final DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference();
-        DatabaseReference readScheduleDetail = databaseReference.child("seeksubstitute").child("ScheduleDetail").child(FirebaseAuth.getInstance().getCurrentUser().getUid());
-
-        readScheduleDetail.addListenerForSingleValueEvent(new ValueEventListener() {
+        finalRead();
+        swipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
             @Override
-            public void onDataChange(DataSnapshot dataSnapshot) {
-                for (DataSnapshot individual:dataSnapshot.getChildren()) {
-                    countrySchoolSubjectDatas.add(individual.getValue(CountrySchoolSubjectData.class));
-                }
-                finalRead();
-            }
-
-            @Override
-            public void onCancelled(DatabaseError databaseError) {
-
+            public void onRefresh() {
+                getFragmentManager().beginTransaction()
+                        .replace(R.id.frame, FragmentSchedule.newInstance()).commit();
             }
         });
-
-
     }
+
+
 
     private void finalRead() {
 
-        for (CountrySchoolSubjectData singObject:countrySchoolSubjectDatas
-             ) {
+
             final DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference();
-            final Query scheduleDb = databaseReference.child("seeksubstitute").child("schedule").child(singObject.getCountry())
-                    .child(singObject.getSchool()).child(singObject.getSubject()).orderByChild("sirID").equalTo(FirebaseAuth.getInstance().getCurrentUser().getUid());
+            final Query scheduleDb = databaseReference.child("seeksubstitute").child("schedule").orderByChild(FirebaseAuth.getInstance().getCurrentUser().getUid());
             scheduleDb.addListenerForSingleValueEvent(new ValueEventListener() {
                 @Override
                 public void onDataChange(DataSnapshot dataSnapshot) {
-                    for (DataSnapshot oneSnap:dataSnapshot.getChildren()) {
-                        scheduleDatas.add(oneSnap.getValue(ScheduleData.class));
-                        scheduleAdaptor.notifyDataSetChanged();
+                    if(dataSnapshot.exists())
+                    {
+                        for (DataSnapshot oneSnap:dataSnapshot.getChildren()) {
+                            scheduleDatas.add(oneSnap.getValue(ScheduleData.class));
+                            swipeRefreshLayout.setRefreshing(false);
+                            scheduleAdaptor.notifyDataSetChanged();
+                        }
+                    }else{
+
+                        swipeRefreshLayout.setRefreshing(false);
                     }
                 }
 
@@ -144,7 +136,7 @@ public class FragmentSchedule extends Fragment {
                 }
             });
 
-        }
+
 
     }
 

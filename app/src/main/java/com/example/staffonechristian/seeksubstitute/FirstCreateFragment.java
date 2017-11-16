@@ -84,7 +84,8 @@ public class FirstCreateFragment extends Fragment {
         subjectAutoCompleteTextView.setAdapter(subjectAdaptor);
         schoolAutoCompleteTextView.setThreshold(1);//will start working from first character
         schoolAutoCompleteTextView.setAdapter(schoolAdaptor);
-
+        CreateSchedule.createButton.setVisibility(View.GONE);
+        CreateSchedule.nextScreen.setVisibility(View.VISIBLE);
         return view;
     }
 

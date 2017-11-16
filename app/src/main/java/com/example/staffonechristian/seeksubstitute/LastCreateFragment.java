@@ -1,5 +1,6 @@
 package com.example.staffonechristian.seeksubstitute;
 
+import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -8,9 +9,21 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.Map;
 
 
 /**
@@ -34,6 +47,7 @@ public class LastCreateFragment extends Fragment {
     private OnFragmentInteractionListener mListener;
     TextView dateText,timeText,schoolText,subjectText,countryText;
     ImageView coverPic;
+    LinearLayout linear1,linear2,linear3,linear4,linear5,progressLinear;
     public LastCreateFragment() {
         // Required empty public constructor
     }
@@ -72,6 +86,14 @@ public class LastCreateFragment extends Fragment {
         subjectText = view.findViewById(R.id.subjectName);
         schoolText = view.findViewById(R.id.schoolName);
         coverPic = view.findViewById(R.id.coverPic);
+        linear1 = view.findViewById(R.id.linear1);
+        linear2 = view.findViewById(R.id.linear2);
+        linear3 = view.findViewById(R.id.linear3);
+        linear4 = view.findViewById(R.id.linear4);
+        linear5 = view.findViewById(R.id.linear5);
+        progressLinear = view.findViewById(R.id.progressLinear);
+        CreateSchedule.createButton.setVisibility(View.VISIBLE);
+        CreateSchedule.nextScreen.setVisibility(View.GONE);
         return view;
     }
 
@@ -84,6 +106,63 @@ public class LastCreateFragment extends Fragment {
         countryText.setText(CreateSchedule.scheduleData.getCountry());
         subjectText.setText(CreateSchedule.scheduleData.getSubject());
         schoolText.setText(CreateSchedule.scheduleData.getSchoolName());
+        CreateSchedule.scheduleData.setTimestamp(-1*(new Date().getTime()));
+        CreateSchedule.scheduleData.setSirID(FirebaseAuth.getInstance().getCurrentUser().getUid());
+        CreateSchedule.createButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                MakeInvisible();
+                progressLinear.setVisibility(View.VISIBLE);
+
+                ObjectMapper oMapper = new ObjectMapper();
+                // object -> Map
+
+
+
+
+                DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference();
+                DatabaseReference scheduleDb = databaseReference.child("seeksubstitute").child("schedule").push();
+                CreateSchedule.scheduleData.setLectureId(scheduleDb.getKey());
+                final Map<String, Object> map = oMapper.convertValue(CreateSchedule.scheduleData, Map.class);
+
+                DateFormat dateFormat = new SimpleDateFormat("dd-MM-yyyy");
+                Date date = null;
+                try {
+                    date = dateFormat.parse(CreateSchedule.scheduleData.getDate());
+                } catch (ParseException e) {
+                    e.printStackTrace();
+                }
+                long time = date.getTime();
+
+                map.put(CreateSchedule.scheduleData.getCountry()+"_"+CreateSchedule.scheduleData.getSchoolName(),time);
+                map.put(CreateSchedule.scheduleData.getSchoolName()+"_"+CreateSchedule.scheduleData.getSubject(),time);
+                map.put(CreateSchedule.scheduleData.getCountry()+"_"+CreateSchedule.scheduleData.getSubject(),time);
+                map.put(CreateSchedule.scheduleData.getCountry()+"_"+CreateSchedule.scheduleData.getSchoolName(),time);
+                map.put(CreateSchedule.scheduleData.getCountry()+"_"+CreateSchedule.scheduleData.getSchoolName()
+                        +"_"+CreateSchedule.scheduleData.getSubject(),time);
+                map.put(FirebaseAuth.getInstance().getCurrentUser().getUid(),-1 *(new Date().getTime()));
+                scheduleDb.setValue(map).addOnSuccessListener(new OnSuccessListener<Void>() {
+                    @Override
+                    public void onSuccess(Void aVoid) {
+                        Intent intent = new Intent(getContext(),MainActivity.class);
+                        startActivity(intent);
+
+                    }
+                });
+
+            }
+        });
+
+    }
+
+    private void MakeInvisible() {
+        linear1.setVisibility(View.GONE);
+        linear2.setVisibility(View.GONE);
+        linear3.setVisibility(View.GONE);
+        linear4.setVisibility(View.GONE);
+        linear5.setVisibility(View.GONE);
+        coverPic.setVisibility(View.GONE);
+        CreateSchedule.createButton.setVisibility(View.GONE);
     }
 
     // TODO: Rename method, update argument and hook method into UI event

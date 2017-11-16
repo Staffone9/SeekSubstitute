@@ -76,6 +76,8 @@ public class SecondCreateFragment extends Fragment {
         calendarImage = view.findViewById(R.id.calendarIcon);
         timeText = view.findViewById(R.id.timeText);
         calendarText = view.findViewById(R.id.calendarText);
+        CreateSchedule.createButton.setVisibility(View.GONE);
+        CreateSchedule.nextScreen.setVisibility(View.VISIBLE);
         return view;
     }
 

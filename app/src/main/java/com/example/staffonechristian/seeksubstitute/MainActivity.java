@@ -20,7 +20,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
       //  createLecture();
-
+        Splash.splashActivity.finish();
         floatingActionButton = (FloatingActionButton) findViewById(R.id.fab);
         Fragment fragment;
         floatingActionButton.setOnClickListener(new View.OnClickListener() {
@@ -63,6 +63,7 @@ public class MainActivity extends AppCompatActivity {
         countrySchoolSubjectData.setSubject(scheduleData.getSubject());
         countrySchoolSubjectData.setCountry(scheduleData.getCountry());
         countrySchoolSubjectData.setSchool(scheduleData.getSchoolName());
+
 
         DatabaseReference writeDb = databaseReference.child("seeksubstitute").child("ScheduleDetail").child(FirebaseAuth.getInstance().getCurrentUser().getUid()).push();
         writeDb.setValue(countrySchoolSubjectData);

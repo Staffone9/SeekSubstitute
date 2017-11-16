@@ -51,7 +51,7 @@ public class TimePicker extends DialogFragment implements TimePickerDialog.OnTim
         }
         //Display the user changed time on TextView
         SecondCreateFragment.timeText.setText(String.valueOf(currentHour)
-                + " : " + String.valueOf(minute) + " " + aMpM + "\n");
+                + " : " + String.valueOf(minute) + " " + aMpM);
 
     }
 
