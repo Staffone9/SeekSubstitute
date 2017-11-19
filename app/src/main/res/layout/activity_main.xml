@@ -23,7 +23,7 @@
         android:layout_marginBottom="5dp"
         android:layout_marginRight="5dp"
         android:layout_margin="18dp"
-        app:backgroundTint="@color/appColour"
+        app:backgroundTint="@color/colorSecondory"
         app:srcCompat="@drawable/create" />
 
 </RelativeLayout>

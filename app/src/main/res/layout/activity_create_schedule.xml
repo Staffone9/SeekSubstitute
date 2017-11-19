@@ -21,22 +21,20 @@
         android:layout_marginBottom="5dp"
         android:layout_marginRight="5dp"
         android:layout_margin="18dp"
-        app:backgroundTint="@color/appColour"
+        app:backgroundTint="@color/colorSecondory"
         app:srcCompat="@drawable/arrow_point_to_right" />
     <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
         android:layout_gravity="bottom|end"
         android:layout_alignParentBottom="true"
         android:layout_alignParentRight="true"
         android:layout_marginBottom="5dp"
         android:layout_marginRight="5dp"
         android:id="@+id/createButton"
-        android:textColor="@color/white"
         android:visibility="gone"
         android:layout_margin="18dp"
-        android:text="Create"
-        android:background="@drawable/button_create"
+        android:background="@drawable/create1"
         />
 
 

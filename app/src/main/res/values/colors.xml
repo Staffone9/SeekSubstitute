@@ -3,6 +3,7 @@
     <color name="colorPrimary">#42f4bf</color>
     <color name="colorPrimaryDark">#00c08f</color>
     <color name="colorAccent">#82fff2</color>
+    <color name="colorSecondory">#6bEFAD</color>
 
     <color name="colorPrimary1">#3F51B5</color>
     <color name="colorPrimaryDark1">#303F9F</color>
@@ -10,6 +11,7 @@
     <color name="indigo">#4b0082</color>
     <color name="pink">#F06292</color>
     <color name="white">#FFFFFF</color>
+    <color name="purple">#691A99</color>
 
     <color name="gray">#e6e6e6</color>
     <color name="blue">#42A5F5</color>
