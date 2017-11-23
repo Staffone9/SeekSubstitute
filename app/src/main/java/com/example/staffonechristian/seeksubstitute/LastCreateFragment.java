@@ -100,7 +100,7 @@ public class LastCreateFragment extends Fragment {
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
-        Glide.with(getContext()).load(R.drawable.cover_pic_1).centerCrop().into(coverPic);
+        Glide.with(getContext()).load(R.drawable.coverpic1).centerCrop().into(coverPic);
         dateText.setText(CreateSchedule.scheduleData.getDate());
         timeText.setText(CreateSchedule.scheduleData.getTime());
         countryText.setText(CreateSchedule.scheduleData.getCountry());
