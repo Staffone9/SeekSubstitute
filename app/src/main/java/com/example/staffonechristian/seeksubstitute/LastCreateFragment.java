@@ -107,7 +107,7 @@ public class LastCreateFragment extends Fragment {
         subjectText.setText(CreateSchedule.scheduleData.getSubject());
         schoolText.setText(CreateSchedule.scheduleData.getSchoolName());
         CreateSchedule.scheduleData.setTimestamp(-1*(new Date().getTime()));
-        CreateSchedule.scheduleData.setSirID(FirebaseAuth.getInstance().getCurrentUser().getUid());
+        CreateSchedule.scheduleData.setSirId(FirebaseAuth.getInstance().getCurrentUser().getUid());
         CreateSchedule.createButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -133,7 +133,7 @@ public class LastCreateFragment extends Fragment {
                     e.printStackTrace();
                 }
                 long time = date.getTime();
-
+                map.put("timeLong",time);
                 map.put(CreateSchedule.scheduleData.getCountry()+"_"+CreateSchedule.scheduleData.getSchoolName(),time);
                 map.put(CreateSchedule.scheduleData.getSchoolName()+"_"+CreateSchedule.scheduleData.getSubject(),time);
                 map.put(CreateSchedule.scheduleData.getCountry()+"_"+CreateSchedule.scheduleData.getSubject(),time);

@@ -10,14 +10,23 @@ public class ScheduleData {
     private String time;
     private String date;
     private String sirName;
-    private String sirID;
+    private String sirId;
     private String lectureId;
     private String country;
     private String schoolName;
-    private boolean going;
     private Object timestamp;
+    private long timeLong;
+
     //by default going will be true
 
+
+    public long getTimeLong() {
+        return timeLong;
+    }
+
+    public void setTimeLong(long timeLong) {
+        this.timeLong = timeLong;
+    }
 
     public Object getTimestamp() {
         return timestamp;
@@ -35,10 +44,6 @@ public class ScheduleData {
         this.schoolName = schoolName;
     }
 
-    public ScheduleData(){
-
-        this.going = true;
-    }
     public String getSubject() {
         return subject;
     }
@@ -71,12 +76,12 @@ public class ScheduleData {
         this.sirName = sirName;
     }
 
-    public String getSirID() {
-        return sirID;
+    public String getSirId() {
+        return sirId;
     }
 
-    public void setSirID(String sirID) {
-        this.sirID = sirID;
+    public void setSirId(String sirId) {
+        this.sirId = sirId;
     }
 
     public String getLectureId() {
@@ -95,11 +100,5 @@ public class ScheduleData {
         this.country = country;
     }
 
-    public boolean isGoing() {
-        return going;
-    }
 
-    public void setGoing(boolean going) {
-        this.going = going;
-    }
 }

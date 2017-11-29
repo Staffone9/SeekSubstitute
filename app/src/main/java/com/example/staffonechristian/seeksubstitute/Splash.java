@@ -19,6 +19,8 @@ public class Splash extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splash);
+
+      //  FirebaseAuth.getInstance().signOut();
         splashImage = (ImageView) findViewById(R.id.splashImage);
         splashActivity = this;
         new Handler().postDelayed(new Runnable() {

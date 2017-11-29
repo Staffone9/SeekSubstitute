@@ -11,19 +11,27 @@
         android:id="@+id/frame"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-
+        android:layout_above="@+id/bottom_navigation"
         ></FrameLayout>
     <android.support.design.widget.FloatingActionButton
         android:id="@+id/fab"
         android:layout_width="56dp"
         android:layout_height="56dp"
         android:layout_gravity="bottom|end"
-        android:layout_alignParentBottom="true"
+        android:layout_above="@+id/bottom_navigation"
         android:layout_alignParentRight="true"
-        android:layout_marginBottom="5dp"
-        android:layout_marginRight="5dp"
-        android:layout_margin="18dp"
+        android:layout_marginRight="18dp"
+        android:layout_marginBottom="18dp"
         app:backgroundTint="@color/appColour"
         app:srcCompat="@drawable/create" />
+    <android.support.design.widget.BottomNavigationView
+        android:id="@+id/bottom_navigation"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        app:itemBackground="@color/colorPrimary"
+        app:itemIconTint="@color/white"
+        app:itemTextColor="@color/white"
+        app:menu="@menu/bottom_navigation_main" />
 
 </RelativeLayout>

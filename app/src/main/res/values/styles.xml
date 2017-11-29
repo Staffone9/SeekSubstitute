@@ -21,4 +21,10 @@
         <item name="colorAccent">@color/colorPrimary</item>
         <item name="android:windowActionModeOverlay">true</item>
     </style>
+    <style name="MainActivityTheme" parent="Theme.AppCompat.Light">
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorPrimary</item>
+        <item name="android:windowActionModeOverlay">true</item>
+    </style>
 </resources>

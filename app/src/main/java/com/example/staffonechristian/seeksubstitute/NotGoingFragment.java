@@ -12,7 +12,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -21,22 +20,24 @@ import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
-import java.util.Date;
 
 
 /**
  * A simple {@link Fragment} subclass.
  * Activities that contain this fragment must implement the
- * {@link FragmentSchedule.OnFragmentInteractionListener} interface
+ * {@link NotGoingFragment.OnFragmentInteractionListener} interface
  * to handle interaction events.
- * Use the {@link FragmentSchedule#newInstance} factory method to
+ * Use the {@link NotGoingFragment#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class FragmentSchedule extends Fragment {
+public class NotGoingFragment extends Fragment {
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
+
+    // TODO: Rename and change types of parameters
+
     private android.support.v7.widget.RecyclerView scheduleRecyclerView;
     ArrayList<ScheduleData> scheduleDatas;
     ArrayList<CountrySchoolSubjectData> countrySchoolSubjectDatas;
@@ -49,7 +50,7 @@ public class FragmentSchedule extends Fragment {
     SwipeRefreshLayout swipeRefreshLayout;
     private OnFragmentInteractionListener mListener;
 
-    public FragmentSchedule() {
+    public NotGoingFragment() {
         // Required empty public constructor
     }
 
@@ -58,11 +59,11 @@ public class FragmentSchedule extends Fragment {
      * this fragment using the provided parameters.
      *
 
-     * @return A new instance of fragment FragmentSchedule.
+     * @return A new instance of fragment NotGoingFragment.
      */
     // TODO: Rename and change types and number of parameters
-    public static FragmentSchedule newInstance() {
-        FragmentSchedule fragment = new FragmentSchedule();
+    public static NotGoingFragment newInstance() {
+        NotGoingFragment fragment = new NotGoingFragment();
         Bundle args = new Bundle();
 
         fragment.setArguments(args);
@@ -81,14 +82,14 @@ public class FragmentSchedule extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View view =  inflater.inflate(R.layout.fragment_fragment_schedule, container, false);
+        View view =  inflater.inflate(R.layout.fragment_not_going, container, false);
         // Inflate the layout for this fragment
 
         swipeRefreshLayout = view.findViewById(R.id.swipeRefresh);
         scheduleDatas = new ArrayList<>();
         countrySchoolSubjectDatas = new ArrayList<>();
         scheduleRecyclerView = view.findViewById(R.id.scheduleRecycler);
-        scheduleAdaptor = new ScheduleAdaptor(scheduleDatas,getContext(),"going");
+        scheduleAdaptor = new ScheduleAdaptor(scheduleDatas,getContext(),"notgoing");
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getContext(), OrientationHelper.VERTICAL, false);
         scheduleRecyclerView.setLayoutManager(linearLayoutManager);
         scheduleRecyclerView.setItemAnimator(new DefaultItemAnimator());
@@ -104,55 +105,48 @@ public class FragmentSchedule extends Fragment {
             @Override
             public void onRefresh() {
                 getFragmentManager().beginTransaction()
-                        .replace(R.id.frame, FragmentSchedule.newInstance()).commit();
+                        .replace(R.id.frame, NotGoingFragment.newInstance()).commit();
             }
         });
     }
 
 
-
     private void finalRead() {
+        final DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference();
+        Query scheduleDb;
+
+        scheduleDb = databaseReference.child("seeksubstitute").child("NotGoingSchedule");
 
 
-            final DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference();
-            Query scheduleDb;
+        scheduleDb.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
 
+                if(dataSnapshot.exists())
+                {
 
-            scheduleDb = databaseReference.child("seeksubstitute").child("schedule").orderByChild(FirebaseAuth.getInstance().getCurrentUser().getUid()).startAt(-1* (new Date().getTime()));
-
-
-            scheduleDb.addListenerForSingleValueEvent(new ValueEventListener() {
-                @Override
-                public void onDataChange(DataSnapshot dataSnapshot) {
-
-                    if(dataSnapshot.exists())
-                    {
-
-                        for (DataSnapshot oneSnap:dataSnapshot.getChildren()) {
+                    for (DataSnapshot oneSnap:dataSnapshot.getChildren()) {
                         //    Toast.makeText(getContext(),"key"+oneSnap.getValue(String.class),Toast.LENGTH_SHORT).show();
-                            ScheduleData scheduleData = new ScheduleData();
-                            scheduleData = oneSnap.getValue(ScheduleData.class);
+                        ScheduleData scheduleData = new ScheduleData();
+                        scheduleData = oneSnap.getValue(ScheduleData.class);
 
-                            scheduleData.setTimeLong(oneSnap.child(scheduleData.getCountry()+"_"+scheduleData.getSchoolName()).getValue(Long.class));
-                         //   Toast.makeText(getContext(),"check"+scheduleData.getTimeLong(),Toast.LENGTH_LONG).show();
-                            scheduleDatas.add(scheduleData);
-                            swipeRefreshLayout.setRefreshing(false);
-                            scheduleAdaptor.notifyDataSetChanged();
-                        }
-                    }else{
-
+                        scheduleData.setTimeLong(oneSnap.child(scheduleData.getCountry()+"_"+scheduleData.getSchoolName()).getValue(Long.class));
+                    //    Toast.makeText(getContext(),"check"+scheduleData.getTimeLong(),Toast.LENGTH_LONG).show();
+                        scheduleDatas.add(scheduleData);
                         swipeRefreshLayout.setRefreshing(false);
+                        scheduleAdaptor.notifyDataSetChanged();
                     }
+                }else{
+
+                    swipeRefreshLayout.setRefreshing(false);
                 }
+            }
 
-                @Override
-                public void onCancelled(DatabaseError databaseError) {
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
 
-                }
-            });
-
-
-
+            }
+        });
     }
 
     // TODO: Rename method, update argument and hook method into UI event
@@ -161,7 +155,6 @@ public class FragmentSchedule extends Fragment {
             mListener.onFragmentInteraction(uri);
         }
     }
-
 
 
     @Override
