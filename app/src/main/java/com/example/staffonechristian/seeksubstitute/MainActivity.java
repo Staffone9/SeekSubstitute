@@ -28,11 +28,23 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
       //  createLecture();
-        Splash.splashActivity.finish();
+        if(Splash.splashActivity!=null)
+        {
+            Splash.splashActivity.finish();
+        }else{
+            if(FirebaseAuth.getInstance().getCurrentUser()!=null && FirebaseAuth.getInstance().getCurrentUser().getUid()!=null )
+            {
+
+            }else {
+                Intent intent = new Intent(getApplicationContext(), LoginActivity.class);
+                startActivity(intent);
+            }
+        }
+
         FirebaseMessaging.getInstance().subscribeToTopic("common");
 
-        bottomNavigationView = (BottomNavigationView) findViewById(R.id.bottom_navigation);
-        floatingActionButton = (FloatingActionButton) findViewById(R.id.fab);
+        bottomNavigationView = findViewById(R.id.bottom_navigation);
+        floatingActionButton = findViewById(R.id.fab);
         Fragment fragment;
         floatingActionButton.setOnClickListener(new View.OnClickListener() {
             @Override
