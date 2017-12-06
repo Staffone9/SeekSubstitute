@@ -1,5 +1,6 @@
 package com.example.staffonechristian.seeksubstitute;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -22,11 +23,15 @@ public class MainActivity extends AppCompatActivity {
 
     FloatingActionButton floatingActionButton;
     BottomNavigationView bottomNavigationView;
-
+    public static Activity mainActivity;
+ //   Button updateProfile;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+
+        mainActivity = this;
       //  createLecture();
         if(Splash.splashActivity!=null)
         {
@@ -45,6 +50,7 @@ public class MainActivity extends AppCompatActivity {
 
         bottomNavigationView = findViewById(R.id.bottom_navigation);
         floatingActionButton = findViewById(R.id.fab);
+      //  updateProfile = findViewById(R.id.updateProfile);
         Fragment fragment;
         floatingActionButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -69,16 +75,24 @@ public class MainActivity extends AppCompatActivity {
 
                     case R.id.action_feed:{
                         getSupportActionBar().setTitle(Html.fromHtml("<font color='#ffffff'>"+"Your schedule"+"</font>"));
+                     //   updateProfile.setVisibility(View.GONE);
+                        floatingActionButton.setVisibility(View.VISIBLE);
                         TransactionOfFragment(FragmentSchedule.newInstance());
                         break;
                     }
                     case R.id.action_alert:{
+
                         getSupportActionBar().setTitle(Html.fromHtml("<font color='#ffffff'>"+"Available for substitute"+"</font>"));
+                   //     updateProfile.setVisibility(View.GONE);
+                        floatingActionButton.setVisibility(View.VISIBLE);
                         TransactionOfFragment(NotGoingFragment.newInstance());
                         break;
                     }
                     case R.id.action_profile:{
-
+                        getSupportActionBar().setTitle(Html.fromHtml("<font color='#ffffff'>"+"Profile"+"</font>"));
+                     //   updateProfile.setVisibility(View.VISIBLE);
+                        floatingActionButton.setVisibility(View.GONE);
+                        TransactionOfFragment(ProfileFragment.newInstance());
                         break;
                     }
 

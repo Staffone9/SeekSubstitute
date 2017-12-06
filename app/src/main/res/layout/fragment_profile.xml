@@ -1,0 +1,133 @@
+<ScrollView android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:android="http://schemas.android.com/apk/res/android" >
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.staffonechristian.seeksubstitute.ProfileFragment"
+    android:orientation="vertical">
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="240dp"
+        android:id="@+id/coverPic"
+        />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:id="@+id/progressLinear"
+        android:gravity="center"
+        android:layout_gravity="center"
+        android:visibility="gone"
+        android:layout_marginTop="100dp"
+        >
+
+        <ProgressBar
+            android:id="@+id/progress_bar"
+            style="?android:progressBarStyle"
+            android:layout_width="80dp"
+
+            android:layout_height="80dp"
+            android:layout_gravity="center" />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:id="@+id/progressBarTitle"
+            android:layout_gravity="center"
+            android:text="Updating your profile"
+            android:layout_marginTop="20dp"
+            />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:id="@+id/linear1"
+        android:layout_margin="@dimen/margin_profile"
+        >
+
+        <EditText
+            android:id="@+id/profileName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/profileTopMargin"
+            android:background="@null"
+            android:fontFamily="@font/bree_serif"
+            android:hint="First and last name"
+            android:textCursorDrawable="@drawable/cursor_profile"
+            android:textSize="@dimen/profile_font" />
+
+        <EditText
+            android:id="@+id/emailId"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/profileTopMargin"
+            android:background="@null"
+            android:fontFamily="@font/bree_serif"
+            android:hint="Email address"
+            android:textCursorDrawable="@drawable/cursor_profile"
+            android:textSize="@dimen/profile_font" />
+
+        <EditText
+            android:id="@+id/subjectName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/profileTopMargin"
+            android:background="@null"
+            android:fontFamily="@font/bree_serif"
+            android:hint="Subject"
+            android:textCursorDrawable="@drawable/cursor_profile"
+            android:textSize="@dimen/profile_font" />
+
+        <EditText
+            android:id="@+id/bio"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/profileTopMargin"
+            android:background="@null"
+            android:fontFamily="@font/bree_serif"
+            android:hint="Bio"
+            android:textCursorDrawable="@drawable/cursor_profile"
+            android:textSize="@dimen/profile_font" />
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom|end"
+
+            android:layout_marginBottom="5dp"
+            android:layout_marginRight="5dp"
+            android:id="@+id/updateProfile"
+            android:textColor="@color/black"
+            android:layout_margin="18dp"
+            android:textSize="@dimen/profile_font"
+            android:text="Update"
+            android:textAllCaps="false"
+            android:background="@drawable/button_trans_back"
+            />
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom|end"
+
+            android:layout_marginRight="18dp"
+            android:id="@+id/logoutProfile"
+            android:textColor="@color/black"
+            android:layout_marginTop="6dp"
+            android:layout_marginLeft="18dp"
+            android:textSize="@dimen/profile_font"
+            android:text="Logout"
+            android:textAllCaps="false"
+            android:background="@drawable/button_trans_back"
+            />
+    </LinearLayout>
+
+
+
+</LinearLayout>
+</ScrollView>

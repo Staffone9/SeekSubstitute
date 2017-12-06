@@ -33,16 +33,19 @@ public class LoginActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
-        login = (Button) findViewById(R.id.loginEmailButton);
-        register = (Button) findViewById(R.id.registerEmailButton);
-        email = (EditText) findViewById(R.id.emailL);
-        password = (EditText) findViewById(R.id.passL);
+        login = findViewById(R.id.loginEmailButton);
+        register = findViewById(R.id.registerEmailButton);
+        email = findViewById(R.id.emailL);
+        password = findViewById(R.id.passL);
         Bundle bundle = getIntent().getExtras();
         firebaseAuth = FirebaseAuth.getInstance();
 //        Intent intent= new Intent(getApplicationContext(),MainActivity.class);
 //        startActivity(intent);
 
-
+        if(MainActivity.mainActivity!=null)
+        {
+            MainActivity.mainActivity.finish();
+        }
         if(bundle!=null)
         {
 
