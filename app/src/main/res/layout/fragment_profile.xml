@@ -49,6 +49,20 @@
         android:id="@+id/linear1"
         android:layout_margin="@dimen/margin_profile"
         >
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginBottom="5dp"
+        android:layout_marginTop="5dp">
+
+        <ImageView
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:src="@drawable/man_user"
+            android:layout_marginRight="20dp"
+            android:scaleType="fitCenter"
+            android:layout_marginTop="@dimen/profileTopMargin"/>
 
         <EditText
             android:id="@+id/profileName"
@@ -59,46 +73,97 @@
             android:fontFamily="@font/bree_serif"
             android:hint="First and last name"
             android:textCursorDrawable="@drawable/cursor_profile"
-            android:textSize="@dimen/profile_font" />
+            android:textSize="@dimen/profile_font"/>
 
-        <EditText
-            android:id="@+id/emailId"
+
+    </LinearLayout>
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/profileTopMargin"
-            android:background="@null"
-            android:fontFamily="@font/bree_serif"
-            android:hint="Email address"
-            android:textCursorDrawable="@drawable/cursor_profile"
-            android:textSize="@dimen/profile_font" />
+            android:orientation="horizontal"
+            android:layout_marginBottom="5dp"
+            android:layout_marginTop="5dp">
 
-        <EditText
-            android:id="@+id/subjectName"
+            <ImageView
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:src="@drawable/envelope"
+                android:scaleType="fitCenter"
+                android:layout_marginRight="20dp"
+                android:layout_marginTop="@dimen/profileTopMargin"/>
+
+            <EditText
+                android:id="@+id/emailId"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/profileTopMargin"
+                android:background="@null"
+                android:fontFamily="@font/bree_serif"
+                android:hint="Email address"
+                android:textCursorDrawable="@drawable/cursor_profile"
+                android:textSize="@dimen/profile_font" />
+
+        </LinearLayout>
+
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/profileTopMargin"
-            android:background="@null"
-            android:fontFamily="@font/bree_serif"
-            android:hint="Subject"
-            android:textCursorDrawable="@drawable/cursor_profile"
-            android:textSize="@dimen/profile_font" />
+            android:orientation="horizontal"
+            android:layout_marginBottom="5dp"
+            android:layout_marginTop="5dp">
 
-        <EditText
-            android:id="@+id/bio"
+            <ImageView
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:src="@drawable/open_book"
+                android:scaleType="fitCenter"
+                android:layout_marginRight="20dp"
+                android:layout_marginTop="@dimen/profileTopMargin"/>
+
+            <EditText
+                android:id="@+id/subjectName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/profileTopMargin"
+                android:background="@null"
+                android:fontFamily="@font/bree_serif"
+                android:hint="Subject"
+                android:textCursorDrawable="@drawable/cursor_profile"
+                android:textSize="@dimen/profile_font" />
+        </LinearLayout>
+
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/profileTopMargin"
-            android:background="@null"
-            android:fontFamily="@font/bree_serif"
-            android:hint="Bio"
-            android:textCursorDrawable="@drawable/cursor_profile"
-            android:textSize="@dimen/profile_font" />
+            android:orientation="horizontal"
+            android:layout_marginBottom="5dp"
+            android:layout_marginTop="5dp">
+
+            <ImageView
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:src="@drawable/about_successful_man"
+                android:scaleType="fitCenter"
+                android:layout_marginRight="20dp"
+                android:layout_marginTop="@dimen/profileTopMargin"/>
+
+            <EditText
+                android:id="@+id/bio"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/profileTopMargin"
+                android:background="@null"
+                android:fontFamily="@font/bree_serif"
+                android:hint="Bio"
+                android:textCursorDrawable="@drawable/cursor_profile"
+                android:textSize="@dimen/profile_font" />
+        </LinearLayout>
+
 
         <Button
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="bottom|end"
-
             android:layout_marginBottom="5dp"
             android:layout_marginRight="5dp"
             android:id="@+id/updateProfile"
@@ -114,7 +179,6 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="bottom|end"
-
             android:layout_marginRight="18dp"
             android:id="@+id/logoutProfile"
             android:textColor="@color/black"

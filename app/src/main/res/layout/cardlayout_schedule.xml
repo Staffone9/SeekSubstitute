@@ -140,7 +140,6 @@
                 android:fontFamily="@font/quicksand"
                 android:gravity="center"
                 android:textColor="@color/black"
-
                 android:textStyle="bold" />
         </LinearLayout>
 
