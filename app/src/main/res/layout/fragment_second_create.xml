@@ -28,7 +28,7 @@
         <ImageView
             android:layout_width="60dp"
             android:layout_height="60dp"
-            android:src="@drawable/calendar"
+            android:src="@drawable/calendar__1_"
             android:id="@+id/calendarIcon"
             />
 

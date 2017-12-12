@@ -28,5 +28,6 @@
     <color name="bg_screen3">#3395ff</color>
     <color name="bg_screen4">#c873f4</color>
     <color name="black">#000000</color>
+    <color name="purplenew">#ab47bc</color>
 
 </resources>

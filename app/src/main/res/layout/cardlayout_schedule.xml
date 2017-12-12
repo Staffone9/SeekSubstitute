@@ -99,7 +99,7 @@
             <ImageView
                 android:layout_width="30dp"
                 android:layout_height="30dp"
-                android:src="@drawable/calendar"
+                android:src="@drawable/calendar__1_"
                 android:layout_marginRight="20dp"
                 android:id="@+id/calendarIcon"
                 android:scaleType="fitCenter"
@@ -128,7 +128,7 @@
                 android:layout_height="30dp"
                 android:layout_marginRight="20dp"
                 android:id="@+id/timeIcon"
-                android:src="@drawable/passage_of_time"
+                android:src="@drawable/clock"
                 android:scaleType="fitCenter"
                 />
 
