@@ -42,7 +42,7 @@ public class ProfileFragment extends Fragment {
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
     ImageView coverPic;
-    EditText name,subject,bio;
+    EditText name,subject,bio,country,qualification;
     TextView email;
     Button updateProfile;
     LinearLayout progressLinear,linearLayout;
@@ -94,6 +94,8 @@ public class ProfileFragment extends Fragment {
         email = view.findViewById(R.id.email);
         subject = view.findViewById(R.id.subjectName);
         bio = view.findViewById(R.id.bio);
+        country=view.findViewById(R.id.country);
+        qualification=view.findViewById(R.id.quali);
         updateProfile = view.findViewById(R.id.updateProfile);
         progressLinear = view.findViewById(R.id.progressLinear);
         linearLayout = view.findViewById(R.id.linear1);
@@ -146,6 +148,14 @@ public class ProfileFragment extends Fragment {
                 else if(subject.getText().toString().trim().equals(""))
                 {
                     Toast.makeText(getContext(),"Please Enter Subject before updating profile", Toast.LENGTH_LONG).show();
+                }
+                else if(country.getText().toString().trim().equals(""))
+                {
+                    Toast.makeText(getContext(),"Please Enter country before updating profile", Toast.LENGTH_LONG).show();
+                }
+                else if(qualification.getText().toString().trim().equals(""))
+                {
+                    Toast.makeText(getContext(),"Please Enter qualification before updating profile", Toast.LENGTH_LONG).show();
                 }else{
                     progressBarTitle.setText("Updating your profile");
                     Invisible();
@@ -155,6 +165,8 @@ public class ProfileFragment extends Fragment {
                     userData.setEmail(email.getText().toString().trim());
                     userData.setFullname(name.getText().toString().trim());
                     userData.setSubject(subject.getText().toString().trim());
+                    userData.setCountry(country.getText().toString().trim());
+                    userData.setQualification(qualification.getText().toString().trim());
 
                     //add qualification and country in object
 
@@ -193,6 +205,8 @@ public class ProfileFragment extends Fragment {
                         subject.setText(userData.getSubject());
                         name.setText(userData.getFullname());
                         email.setText(userData.getEmail());
+                        country.setText(userData.getCountry());
+                        qualification.setText(userData.getQualification());
 
                        Visible();
                     }

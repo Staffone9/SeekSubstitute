@@ -22,20 +22,24 @@
         android:layout_width="match_parent"
         android:orientation="horizontal"
         android:weightSum="1"
+        android:layout_marginBottom="5dp"
+        android:layout_marginTop="5dp"
         >
-        <TextView
-            android:id="@+id/emailTextView"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="0.3"
+        <ImageView
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:src="@drawable/envelope"
+            android:scaleType="fitCenter"
+            android:layout_marginRight="20dp"
+            android:layout_marginTop="30dp"/>
 
-            android:text="Email Address:" />
 
         <EditText
             android:id="@+id/emailL"
-            android:layout_width="0dp"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="0.7"
+            android:layout_marginTop="24dp"
             android:hint="Enter Email Address" />
 
     </LinearLayout>
@@ -45,19 +49,24 @@
         android:layout_width="match_parent"
         android:orientation="horizontal"
         android:weightSum="1"
+        android:layout_marginBottom="5dp"
+        android:layout_marginTop="5dp"
         >
-        <TextView
-            android:id="@+id/passwordTextView"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="0.3"
-            android:text="Password:" />
+        <ImageView
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:src="@drawable/key"
+            android:scaleType="fitCenter"
+            android:layout_marginRight="20dp"
+            android:layout_marginTop="30dp"/>
+
 
         <EditText
             android:id="@+id/passL"
-            android:layout_width="0dp"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="0.7"
+            android:layout_marginTop="24dp"
             android:hint="Enter Password"
             android:inputType="textPassword" />
 

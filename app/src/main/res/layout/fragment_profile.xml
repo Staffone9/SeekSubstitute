@@ -158,6 +158,62 @@
                 android:textSize="@dimen/profile_font" />
         </LinearLayout>
 
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginBottom="5dp"
+            android:layout_marginTop="5dp">
+
+            <ImageView
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:src="@drawable/flag"
+                android:scaleType="fitCenter"
+                android:layout_marginRight="20dp"
+                android:layout_marginTop="@dimen/profileTopMargin"/>
+
+            <EditText
+                android:id="@+id/country"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/profileTopMargin"
+                android:background="@null"
+                android:fontFamily="@font/bree_serif"
+                android:hint="Country"
+                android:textCursorDrawable="@drawable/cursor_profile"
+                android:textSize="@dimen/profile_font" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginBottom="5dp"
+            android:layout_marginTop="5dp">
+
+            <ImageView
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:src="@drawable/diploma"
+                android:scaleType="fitCenter"
+                android:layout_marginRight="20dp"
+                android:layout_marginTop="@dimen/profileTopMargin"/>
+
+            <EditText
+                android:id="@+id/quali"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/profileTopMargin"
+                android:background="@null"
+                android:fontFamily="@font/bree_serif"
+                android:hint="Qualification"
+                android:textCursorDrawable="@drawable/cursor_profile"
+                android:textSize="@dimen/profile_font" />
+        </LinearLayout>
+
+
+
 
         <Button
             android:layout_width="match_parent"
