@@ -5,17 +5,37 @@ package com.example.staffonechristian.seeksubstitute;
  */
 
 public class UserData {
-    String firstAndLastName;
+    String fullname;
     String subject;
     String bio;
-    String emailId;
+    String email;
+    String qualification;
+    String country;
 
-    public String getFirstAndLastName() {
-        return firstAndLastName;
+
+
+    public String getFullname() {
+        return fullname;
     }
 
-    public void setFirstAndLastName(String firstAndLastName) {
-        this.firstAndLastName = firstAndLastName;
+    public void setFullname(String fullname) {
+        this.fullname = fullname;
+    }
+
+    public String getQualification() {
+        return qualification;
+    }
+
+    public void setQualification(String qualification) {
+        this.qualification = qualification;
+    }
+
+    public String getCountry() {
+        return country;
+    }
+
+    public void setCountry(String country) {
+        this.country = country;
     }
 
     public String getSubject() {
@@ -34,11 +54,11 @@ public class UserData {
         this.bio = bio;
     }
 
-    public String getEmailId() {
-        return emailId;
+    public String getEmail() {
+        return email;
     }
 
-    public void setEmailId(String emailId) {
-        this.emailId = emailId;
+    public void setEmail(String email) {
+        this.email = email;
     }
 }

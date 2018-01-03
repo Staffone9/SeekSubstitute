@@ -28,7 +28,6 @@
             android:id="@+id/progress_bar"
             style="?android:progressBarStyle"
             android:layout_width="80dp"
-
             android:layout_height="80dp"
             android:layout_gravity="center" />
         <TextView
@@ -70,7 +69,6 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/profileTopMargin"
             android:background="@null"
-            android:textColor="@color/purplenew"
             android:fontFamily="@font/bree_serif"
             android:hint="First and last name"
             android:textCursorDrawable="@drawable/cursor_profile"
@@ -93,13 +91,12 @@
                 android:layout_marginRight="20dp"
                 android:layout_marginTop="@dimen/profileTopMargin"/>
 
-            <EditText
-                android:id="@+id/emailId"
+            <TextView
+                android:id="@+id/email"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/profileTopMargin"
                 android:background="@null"
-                android:textColor="@color/purplenew"
                 android:fontFamily="@font/bree_serif"
                 android:hint="Email address"
                 android:textCursorDrawable="@drawable/cursor_profile"
@@ -129,7 +126,6 @@
                 android:layout_marginTop="@dimen/profileTopMargin"
                 android:background="@null"
                 android:fontFamily="@font/bree_serif"
-                android:textColor="@color/purplenew"
                 android:hint="Subject"
                 android:textCursorDrawable="@drawable/cursor_profile"
                 android:textSize="@dimen/profile_font" />
@@ -158,7 +154,6 @@
                 android:background="@null"
                 android:fontFamily="@font/bree_serif"
                 android:hint="Bio"
-                android:textColor="@color/purplenew"
                 android:textCursorDrawable="@drawable/cursor_profile"
                 android:textSize="@dimen/profile_font" />
         </LinearLayout>
@@ -171,7 +166,6 @@
             android:layout_marginBottom="5dp"
             android:layout_marginRight="5dp"
             android:id="@+id/updateProfile"
-            android:textColor="@color/purplenew"
             android:layout_margin="18dp"
             android:textSize="@dimen/profile_font"
             android:text="Update"
@@ -185,7 +179,6 @@
             android:layout_gravity="bottom|end"
             android:layout_marginRight="18dp"
             android:id="@+id/logoutProfile"
-            android:textColor="@color/purplenew"
             android:layout_marginTop="6dp"
             android:layout_marginLeft="18dp"
             android:textSize="@dimen/profile_font"

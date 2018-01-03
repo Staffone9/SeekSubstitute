@@ -42,7 +42,8 @@ public class ProfileFragment extends Fragment {
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
     ImageView coverPic;
-    EditText name,email,subject,bio;
+    EditText name,subject,bio;
+    TextView email;
     Button updateProfile;
     LinearLayout progressLinear,linearLayout;
 
@@ -90,7 +91,7 @@ public class ProfileFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_profile, container, false);
         coverPic = view.findViewById(R.id.coverPic);
         name = view.findViewById(R.id.profileName);
-        email = view.findViewById(R.id.emailId);
+        email = view.findViewById(R.id.email);
         subject = view.findViewById(R.id.subjectName);
         bio = view.findViewById(R.id.bio);
         updateProfile = view.findViewById(R.id.updateProfile);
@@ -138,10 +139,6 @@ public class ProfileFragment extends Fragment {
                 if(name.getText().toString().trim().equals(""))
                 {
                     Toast.makeText(getContext(),"Please Enter Name before updating profile", Toast.LENGTH_LONG).show();
-                }else if(email.getText().toString().trim().equals(""))
-                {
-                    Toast.makeText(getContext(),"Please Enter Email before updating profile", Toast.LENGTH_LONG).show();
-
                 }else if(bio.getText().toString().trim().equals(""))
                 {
                     Toast.makeText(getContext(),"Please Enter Bio before updating profile", Toast.LENGTH_LONG).show();
@@ -155,9 +152,12 @@ public class ProfileFragment extends Fragment {
                     DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference();
                     UserData userData = new UserData();
                     userData.setBio(bio.getText().toString().trim());
-                    userData.setEmailId(email.getText().toString().trim());
-                    userData.setFirstAndLastName(name.getText().toString().trim());
+                    userData.setEmail(email.getText().toString().trim());
+                    userData.setFullname(name.getText().toString().trim());
                     userData.setSubject(subject.getText().toString().trim());
+
+                    //add qualification and country in object
+
                     databaseReference.child("UsersData").child(FirebaseAuth.getInstance()
                             .getCurrentUser()
                             .getUid())
@@ -191,8 +191,9 @@ public class ProfileFragment extends Fragment {
                     if(userData!=null) {
                         bio.setText(userData.getBio());
                         subject.setText(userData.getSubject());
-                        name.setText(userData.getFirstAndLastName());
-                        email.setText(userData.getEmailId());
+                        name.setText(userData.getFullname());
+                        email.setText(userData.getEmail());
+
                        Visible();
                     }
                 }else{

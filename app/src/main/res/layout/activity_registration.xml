@@ -6,7 +6,6 @@
     android:scrollbarStyle="insideOverlay">
 
     <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:app="http://schemas.android.com/apk/res-auto"
         xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -22,173 +21,81 @@
             android:layout_margin="30dp"
             android:src="@drawable/register" />
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:weightSum="1">
-
-            <TextView
-                android:id="@+id/NameTextViewR"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="0.3"
-
-                android:text="Name:" />
 
             <EditText
                 android:id="@+id/nameR"
-                android:layout_width="0dp"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_weight="0.7"
+                android:layout_margin="10dp"
                 android:hint="Enter Your FullName" />
 
-        </LinearLayout>
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:weightSum="1">
-
-            <TextView
-                android:id="@+id/emailTextViewR"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="0.3"
-
-                android:text="Email Address:" />
 
             <EditText
                 android:id="@+id/emailR"
-                android:layout_width="0dp"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_weight="0.7"
+                android:layout_margin="10dp"
                 android:hint="Enter Email Address" />
 
-        </LinearLayout>
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:weightSum="1">
 
-            <TextView
-                android:id="@+id/passwordTextViewR"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="0.3"
-                android:text="Password:" />
 
             <EditText
                 android:id="@+id/passwordR"
-                android:layout_width="0dp"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_weight="0.7"
+                android:layout_margin="10dp"
                 android:hint="Enter Password"
                 android:inputType="textPassword" />
 
-        </LinearLayout>
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:weightSum="1">
 
-            <TextView
-                android:id="@+id/confirmpasswordTextViewR"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="0.3"
-                android:text="Confirm Password:" />
 
             <EditText
                 android:id="@+id/confirmPasswordR"
-                android:layout_width="0dp"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_weight="0.7"
+                android:layout_margin="10dp"
                 android:hint="Enter Password again"
                 android:inputType="textPassword"
-                android:maxLines="1" />
+             />
 
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:weightSum="1">
-
-            <TextView
-                android:id="@+id/subjectTextViewR"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="0.3"
-                android:text="Subject:" />
 
             <EditText
                 android:id="@+id/subjectR"
-                android:layout_width="0dp"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_weight="0.7"
                 android:hint="Enter your Subject"
-                android:maxLines="1"
+                android:layout_margin="10dp"
 
                 />
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:weightSum="1">
-
-            <TextView
-                android:id="@+id/countryTextViewR"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="0.3"
-                android:text="Country:" />
 
             <EditText
                 android:id="@+id/countryR"
-                android:layout_width="0dp"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_weight="0.7"
-                android:hint="Enter your Country:"
-                android:maxLines="1"
-
+                android:hint="Enter your Country"
+                android:layout_margin="10dp"
                 />
 
-        </LinearLayout>
-
-        <LinearLayout
+        <EditText
+            android:id="@+id/bioR"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:weightSum="1">
+            android:hint="Enter your Bio"
+            android:layout_margin="10dp"
+            />
 
-            <TextView
-                android:id="@+id/qualificationTextViewR"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="0.3"
-                android:text="Qualification:" />
+
 
             <EditText
                 android:id="@+id/qualificationR"
-                android:layout_width="0dp"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_weight="0.7"
-                android:hint="Enter your Qualification:"
-                android:maxLines="1"
-
+                android:hint="Enter your Qualification"
+                android:layout_margin="10dp"
                 />
-
-        </LinearLayout>
 
         <Button
             android:id="@+id/submitEmail"

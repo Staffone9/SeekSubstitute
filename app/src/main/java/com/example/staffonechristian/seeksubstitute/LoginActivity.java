@@ -48,7 +48,6 @@ public class LoginActivity extends AppCompatActivity {
         }
         if(bundle!=null)
         {
-
             emailS = bundle.getString("email");
             passS = bundle.getString("pass");
             if(emailS!=null && passS!=null)
@@ -56,8 +55,6 @@ public class LoginActivity extends AppCompatActivity {
                 email.setText(emailS);
                 password.setText(passS);
             }
-
-
         }
         register.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -70,7 +67,6 @@ public class LoginActivity extends AppCompatActivity {
         login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
                 emailS = email.getText().toString().trim();
                 passS = password.getText().toString().trim();
 

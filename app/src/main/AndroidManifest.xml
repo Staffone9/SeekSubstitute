@@ -39,8 +39,12 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".LoginActivity" />
-        <activity android:name=".RegistrationActivity" />
+        <activity android:name=".LoginActivity"
+            android:theme="@style/AppNewTheme"
+            android:windowSoftInputMode="adjustResize"/>
+        <activity android:name=".RegistrationActivity"
+            android:theme="@style/AppNewTheme"
+            android:windowSoftInputMode="adjustResize"/>
         <activity android:name=".CreateSchedule"
             android:theme="@style/AppNewTheme"
             android:windowSoftInputMode="adjustResize"
