@@ -15,6 +15,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.text.SimpleDateFormat;
 import java.util.Calendar;
 
 
@@ -31,7 +32,7 @@ public class SecondCreateFragment extends Fragment {
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
-
+    Calendar calender;
     // TODO: Rename and change types of parameters
     private String mParam1;
     private String mParam2;
@@ -158,7 +159,7 @@ public class SecondCreateFragment extends Fragment {
          * Set Up Current Date Into dialog
          */
         FragmentManager fm = getActivity().getFragmentManager();
-        Calendar calender = Calendar.getInstance();
+        calender = Calendar.getInstance();
         Bundle args = new Bundle();
         args.putInt("year", calender.get(Calendar.YEAR));
         args.putInt("month", calender.get(Calendar.MONTH));
@@ -175,9 +176,11 @@ public class SecondCreateFragment extends Fragment {
 
         public void onDateSet(DatePicker view, int year, int monthOfYear,
                               int dayOfMonth) {
+            SimpleDateFormat format1 = new SimpleDateFormat("yyyy-MM-dd");
 
-            calendarText.setText(String.valueOf(dayOfMonth) + "-" + String.valueOf(monthOfYear+1)
-                    + "-" + String.valueOf(year));
+            calendarText.setText(format1.format(calender.getTime()).toString());
+//            calendarText.setText(String.valueOf(dayOfMonth) + "-" + String.valueOf(monthOfYear+1)
+//                    + "-" + String.valueOf(year));
         }
     };
 

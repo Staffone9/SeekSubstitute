@@ -11,6 +11,7 @@ import android.support.v7.widget.OrientationHelper;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.LinearLayout;
 
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -46,6 +47,7 @@ public class NotGoingFragment extends Fragment {
     private String mParam1;
     private String mParam2;
     boolean notgoing=false;
+    LinearLayout progressLinear;
 
     SwipeRefreshLayout swipeRefreshLayout;
     private OnFragmentInteractionListener mListener;
@@ -89,6 +91,7 @@ public class NotGoingFragment extends Fragment {
         scheduleDatas = new ArrayList<>();
         countrySchoolSubjectDatas = new ArrayList<>();
         scheduleRecyclerView = view.findViewById(R.id.scheduleRecycler);
+        progressLinear = view.findViewById(R.id.progressLinear);
         scheduleAdaptor = new ScheduleAdaptor(scheduleDatas,getContext(),"notgoing");
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getContext(), OrientationHelper.VERTICAL, false);
         scheduleRecyclerView.setLayoutManager(linearLayoutManager);
@@ -100,6 +103,7 @@ public class NotGoingFragment extends Fragment {
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
+        progressLinear.setVisibility(View.VISIBLE);
         finalRead();
         swipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
             @Override
@@ -135,9 +139,10 @@ public class NotGoingFragment extends Fragment {
                         scheduleDatas.add(scheduleData);
                         swipeRefreshLayout.setRefreshing(false);
                         scheduleAdaptor.notifyDataSetChanged();
+                        progressLinear.setVisibility(View.GONE);
                     }
                 }else{
-
+                    progressLinear.setVisibility(View.GONE);
                     swipeRefreshLayout.setRefreshing(false);
                 }
             }

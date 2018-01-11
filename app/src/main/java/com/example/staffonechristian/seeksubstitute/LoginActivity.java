@@ -1,5 +1,6 @@
 package com.example.staffonechristian.seeksubstitute;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -7,6 +8,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.LinearLayout;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -28,6 +30,8 @@ public class LoginActivity extends AppCompatActivity {
     String passS;
     String temp;
     String pas;
+    LinearLayout progressLinear,wholeLayout;
+    public static Activity loginActivity;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,14 +41,21 @@ public class LoginActivity extends AppCompatActivity {
         register = findViewById(R.id.registerEmailButton);
         email = findViewById(R.id.emailL);
         password = findViewById(R.id.passL);
+        progressLinear = findViewById(R.id.progressLinear);
+        wholeLayout = findViewById(R.id.wholeLayout);
         Bundle bundle = getIntent().getExtras();
         firebaseAuth = FirebaseAuth.getInstance();
+        loginActivity = this;
 //        Intent intent= new Intent(getApplicationContext(),MainActivity.class);
 //        startActivity(intent);
 
         if(MainActivity.mainActivity!=null)
         {
             MainActivity.mainActivity.finish();
+        }
+        if(RegistrationActivity.registration!=null)
+        {
+            RegistrationActivity.registration.finish();
         }
         if(bundle!=null)
         {
@@ -71,6 +82,8 @@ public class LoginActivity extends AppCompatActivity {
                 passS = password.getText().toString().trim();
 
                 if(!emailS.equals("") && !passS.equals("")) {
+                    wholeLayout.setVisibility(View.GONE);
+                    progressLinear.setVisibility(View.VISIBLE);
                     firebaseAuth.signInWithEmailAndPassword(emailS, passS).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                         @Override
                         public void onComplete(@NonNull Task<AuthResult> task) {
@@ -81,7 +94,8 @@ public class LoginActivity extends AppCompatActivity {
                                 startActivity(intent);
 
                             } else {
-
+                                wholeLayout.setVisibility(View.VISIBLE);
+                                progressLinear.setVisibility(View.GONE);
                                 Toast.makeText(getApplicationContext(), "Login failed", Toast.LENGTH_SHORT).show();
                             }
 
@@ -89,6 +103,8 @@ public class LoginActivity extends AppCompatActivity {
                         }
                     });
                 }else{
+                    wholeLayout.setVisibility(View.VISIBLE);
+                    progressLinear.setVisibility(View.GONE);
                     Toast.makeText(getApplicationContext(), "Please enter some value", Toast.LENGTH_SHORT).show();
 
                 }
@@ -98,6 +114,7 @@ public class LoginActivity extends AppCompatActivity {
 
 
     }
+
 
     private void CheckExist(final String emailS) {
         final DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference();

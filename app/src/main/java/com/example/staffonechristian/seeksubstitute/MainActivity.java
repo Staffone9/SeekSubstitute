@@ -33,6 +33,10 @@ public class MainActivity extends AppCompatActivity {
 
         mainActivity = this;
       //  createLecture();
+        if(LoginActivity.loginActivity!=null)
+        {
+            LoginActivity.loginActivity.finish();
+        }
         if(Splash.splashActivity!=null)
         {
             Splash.splashActivity.finish();

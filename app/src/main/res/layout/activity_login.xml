@@ -10,7 +10,40 @@
         tools:context="com.example.staffonechristian.seeksubstitute.LoginActivity"
         android:orientation="vertical"
         android:padding="8dp"
-        android:background="@color/white">
+        >
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:id="@+id/progressLinear"
+            android:gravity="center"
+            android:layout_gravity="center"
+            android:visibility="gone"
+            android:layout_marginTop="100dp"
+            >
+
+            <ProgressBar
+                android:id="@+id/progress_bar"
+                style="?android:progressBarStyle"
+                android:layout_width="80dp"
+                android:layout_height="80dp"
+                android:layout_gravity="center" />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:id="@+id/progressBarTitle"
+                android:layout_gravity="center"
+                android:text="Loading..."
+                android:layout_marginTop="20dp"
+                />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/wholeLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
 
     <ImageView
         android:layout_width="100dp"
@@ -100,6 +133,7 @@
         android:textColor="@color/white"
         android:background="@drawable/second_button"
         android:text="Register" />
+        </LinearLayout>
 
 </LinearLayout>
 </ScrollView>

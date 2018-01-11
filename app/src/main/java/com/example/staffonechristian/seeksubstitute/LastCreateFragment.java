@@ -125,7 +125,7 @@ public class LastCreateFragment extends Fragment {
                 CreateSchedule.scheduleData.setLectureId(scheduleDb.getKey());
                 final Map<String, Object> map = oMapper.convertValue(CreateSchedule.scheduleData, Map.class);
 
-                DateFormat dateFormat = new SimpleDateFormat("dd-MM-yyyy");
+                DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
                 Date date = null;
                 try {
                     date = dateFormat.parse(CreateSchedule.scheduleData.getDate());

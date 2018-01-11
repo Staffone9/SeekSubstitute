@@ -5,7 +5,33 @@
     android:orientation="vertical"
     tools:context="com.example.staffonechristian.seeksubstitute.NotGoingFragment">
     <!-- TODO: Update blank fragment layout -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:id="@+id/progressLinear"
+        android:gravity="center"
+        android:layout_gravity="center"
+        android:visibility="gone"
+        android:layout_marginTop="100dp"
+        >
 
+        <ProgressBar
+            android:id="@+id/progress_bar"
+            style="?android:progressBarStyle"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:layout_gravity="center" />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:id="@+id/progressBarTitle"
+            android:layout_gravity="center"
+            android:text="Loading...."
+            android:layout_marginTop="20dp"
+            />
+    </LinearLayout>
     <android.support.v4.widget.SwipeRefreshLayout android:layout_height="match_parent"
         android:layout_width="match_parent"
         android:id="@+id/swipeRefresh"

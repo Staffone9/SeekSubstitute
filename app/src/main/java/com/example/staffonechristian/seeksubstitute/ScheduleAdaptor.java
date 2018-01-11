@@ -112,6 +112,7 @@ public class ScheduleAdaptor extends RecyclerView.Adapter<RecyclerView.ViewHolde
 
         final DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference();
         ObjectMapper oMapper = new ObjectMapper();
+        scheduleData.setSirId(FirebaseAuth.getInstance().getCurrentUser().getUid());
         //  Toast.makeText(context,"Sir id"+scheduleData.getSirId(),Toast.LENGTH_LONG).show();
         final Map<String, Object> map = oMapper.convertValue(scheduleData, Map.class);
 
@@ -200,7 +201,7 @@ public class ScheduleAdaptor extends RecyclerView.Adapter<RecyclerView.ViewHolde
 
 
         SimpleDateFormat month_date = new SimpleDateFormat("MMM dd", Locale.ENGLISH);
-        SimpleDateFormat sdf = new SimpleDateFormat("mm-dd-yyyy");
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-mm-dd");
 
 
         Date date = null;

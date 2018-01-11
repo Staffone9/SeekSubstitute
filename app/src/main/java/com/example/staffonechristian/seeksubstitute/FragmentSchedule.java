@@ -11,6 +11,7 @@ import android.support.v7.widget.OrientationHelper;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.LinearLayout;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
@@ -45,6 +46,7 @@ public class FragmentSchedule extends Fragment {
     private String mParam1;
     private String mParam2;
     boolean notgoing=false;
+    LinearLayout progressLinear;
 
     SwipeRefreshLayout swipeRefreshLayout;
     private OnFragmentInteractionListener mListener;
@@ -87,6 +89,7 @@ public class FragmentSchedule extends Fragment {
         swipeRefreshLayout = view.findViewById(R.id.swipeRefresh);
         scheduleDatas = new ArrayList<>();
         countrySchoolSubjectDatas = new ArrayList<>();
+        progressLinear = view.findViewById(R.id.progressLinear);
         scheduleRecyclerView = view.findViewById(R.id.scheduleRecycler);
         scheduleAdaptor = new ScheduleAdaptor(scheduleDatas,getContext(),"going");
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getContext(), OrientationHelper.VERTICAL, false);
@@ -99,7 +102,9 @@ public class FragmentSchedule extends Fragment {
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
+        progressLinear.setVisibility(View.VISIBLE);
         finalRead();
+
         swipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
             @Override
             public void onRefresh() {
@@ -138,9 +143,10 @@ public class FragmentSchedule extends Fragment {
                             scheduleDatas.add(scheduleData);
                             swipeRefreshLayout.setRefreshing(false);
                             scheduleAdaptor.notifyDataSetChanged();
+                            progressLinear.setVisibility(View.GONE);
                         }
                     }else{
-
+                        progressLinear.setVisibility(View.GONE);
                         swipeRefreshLayout.setRefreshing(false);
                     }
                 }
