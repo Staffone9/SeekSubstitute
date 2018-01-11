@@ -169,7 +169,6 @@ public class ProfileFragment extends Fragment {
                     userData.setQualification(qualification.getText().toString().trim());
 
                     //add qualification and country in object
-
                     databaseReference.child("UsersData").child(FirebaseAuth.getInstance()
                             .getCurrentUser()
                             .getUid())
