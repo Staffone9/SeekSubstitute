@@ -83,7 +83,7 @@
             android:id="@+id/bioR"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Enter your Bio"
+            android:hint="Enter your Bio(Optional)"
             android:layout_margin="10dp"
             />
 

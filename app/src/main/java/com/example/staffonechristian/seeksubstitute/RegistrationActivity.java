@@ -52,7 +52,23 @@ public class RegistrationActivity extends AppCompatActivity {
                 bioS = bio.getText().toString().trim();
                 if(confirmPassS.equals(passS))
                 {
-                    if (email != null && passS != null && confirmPassS != null ) {
+                    if(name.getText().toString().trim().equals(""))
+                    {
+                        Toast.makeText(getApplicationContext(),"Please Enter Name before updating profile", Toast.LENGTH_LONG).show();
+                    }
+                    else if(subject.getText().toString().trim().equals(""))
+                    {
+                        Toast.makeText(getApplicationContext(),"Please Enter Subject before updating profile", Toast.LENGTH_LONG).show();
+                    }
+                    else if(country.getText().toString().trim().equals(""))
+                    {
+                        Toast.makeText(getApplicationContext(),"Please Enter country before updating profile", Toast.LENGTH_LONG).show();
+                    }
+                    else if(qualification.getText().toString().trim().equals(""))
+                    {
+                        Toast.makeText(getApplicationContext(),"Please Enter qualification before updating profile", Toast.LENGTH_LONG).show();
+                    }
+                    else if (email != null && passS != null && confirmPassS != null ) {
                         firebaseAuth.createUserWithEmailAndPassword(emailS, passS).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                             @Override
                             public void onComplete(@NonNull Task<AuthResult> task) {
